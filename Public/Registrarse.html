@@ -6,18 +6,42 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <div class="container">
+<body class="registro">
+    <div class="container-register">
         <div class="left">
-            <h1>Registro</h1>
-            <form action="" method="post">
-            <div class="form">
-            <input type="text">
-            <label for="">Nombre Completo</label>
-        </form>
+            <form action="" class="form">
+                <h1 class="form_title">Registro</h1>
+                <div class="form__container">
+    
+                <div class="form_group">
+                    <input type="text" id="Nombres" class="form__input" placeholder=" " required>
+                    <label for="" class="form__label">Nombre Completo</label>
+                    <span class="form__line"></span>
+                </div>    
+                <div class="form_group">
+                        <select name="" id="" class="form__input" required>
+                            <option value="">Seleccione</option>
+                            <option value="">Cedula de Ciudadana</option>
+                            <option value="">Cedula de Extranjeria</option>
+                            <option value="">Pasaporte</option>
+                        </select>
+                </div>
+                <div class="form_group">
+                   <input type="number" id="documento" class="form__input" placeholder=" " required>
+                   <label for="" class="form__label">Numero de documento</label>
+                   <span class="form__line"></span>
+                </div>                   
+                    <input type="submit"  class="form_submit" value="Entrar" id="">
+                 </div>
+                
+                </div>
+                <div class="right">
+                    <img src="./Assets/Woman reading-rafiki.png" class="img" alt="">
+                    <img src="./Assets/Women talking-pana.png" style="display: none;" alt="">
+                    <img src="./Assets/Women talking-rafiki.png" style="display: none;" alt="">
+                </div>
         </div>
-        </div>
-        <div class="right"></div>
+        
     </div>
 </body>
 </html>
