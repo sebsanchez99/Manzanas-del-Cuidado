@@ -348,13 +348,26 @@ footer .section-1 {
 
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
-/* Registrarse */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
 
 main {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #ff8c6b;
+  background-color: #ff7356;
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -421,7 +434,7 @@ form.sign-up-form {
 }
 
 .logo h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-top: -9px;
   letter-spacing: -0.5px;
   color: #151111;
@@ -487,7 +500,7 @@ label {
   border-bottom-color: #151111;
 }
 
-.input-field.active+label {
+.input-field.active + label {
   font-size: 0.75rem;
   top: -2px;
 }
@@ -542,10 +555,10 @@ main.sign-up-mode .carousel {
   left: 0%;
 }
 
-.carousel{
+.carousel {
   position: absolute;
   height: 100%;
-  width: 50%;
+  width: 55%;
   left: 45%;
   top: 0;
   background-color: #ffe0d2;
@@ -555,16 +568,20 @@ main.sign-up-mode .carousel {
   padding-bottom: 2rem;
   overflow: hidden;
   transition: 0.8s ease-in-out;
+
 }
 
 .images-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
 }
 
 .image {
-  width: 100%;
+  margin-left: 5%;
+  width: 90%;
   grid-column: 1/2;
   grid-row: 1/2;
   opacity: 0;
@@ -596,9 +613,9 @@ main.sign-up-mode .carousel {
 }
 
 .text-wrap {
-  max-height: 2.2rem;
+  max-height: 2rem;
   overflow: hidden;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .text-group {
@@ -729,102 +746,16 @@ main.sign-up-mode .carousel {
   }
 }
 
-/* 
-.container-register {
-  align-items: center;
-  background: #ffffff;
-  width: 90%;
-  margin: auto;
-  max-height: 800px;
-  padding: 2em;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px -5px rgb(0 0 0 /30%);
+/* ---------------------------------------------------Login------------------------------------------------------------------- */
+
+.Login {
+  background-color: #E85234;
 }
 
-.form {
-  background-color: #fff;
-  margin: auto;
-  width: 90%;
-  max-width: 600px;
-  padding: 4.5em 3em;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px 5px rgb(0 0 0 /30%);
-  text-align: center;
+.Caja-Login {
+  background-color: #ffffff;
+
 }
-
-.form_title {
-  font-size: 2rem;
-  margin-bottom: .5rem;
-}
-
-.form__container {
-  margin-top: 3em;
-  display: grid;
-  gap: 2.5em;
-}
-
-.form_group {
-  position: relative;
-  color: #bbb;
-}
-
-.form__input {
-  width: 100%;
-  background: none;
-  color: #000;
-  font-size: 1rem;
-  padding: .6em .3em;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid black;
-}
-
-.form__input:focus+.form__label,
-.form__input:not(:placeholder-shown)+.form__label {
-  transform: translateY(.12px) scale(.7);
-  transform-origin: left top;
-  color: #344955;
-}
-
-.form__label {
-  color: #bbb;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 5px;
-  transform: translateY(10px);
-  transition: transform .5s, color, .3s;
-}
-
-.form_submit {
-  margin-top: 10px;
-  background: #525CEB;
-  color: #fff;
-  font-weight: 300;
-  font-size: 1rem;
-  padding: .8rem 0;
-  border: none;
-  border-radius: .5em;
-  width: 100%;
-  cursor: pointer;
-}
-
-.form_line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #525CEB;
-}
-
-.container-register .right .img {
-  width: 70%;
-} */
-
 
 
 /*boton de enviar*/
