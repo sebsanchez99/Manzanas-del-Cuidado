@@ -542,10 +542,10 @@ main.sign-up-mode .carousel {
   left: 0%;
 }
 
-.carousel {
+.carousel{
   position: absolute;
   height: 100%;
-  width: 55%;
+  width: 50%;
   left: 45%;
   top: 0;
   background-color: #ffe0d2;
@@ -825,16 +825,6 @@ main.sign-up-mode .carousel {
   width: 70%;
 } */
 
-/* ---------------------------------------------------Login------------------------------------------------------------------- */
-
-.Login {
-  background-color: #E85234;
-}
-
-.Caja-Login {
-  background-color: #ffffff;
-
-}
 
 
 /*boton de enviar*/

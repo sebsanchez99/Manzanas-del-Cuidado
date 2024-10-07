@@ -3,35 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
     <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="Login">
-    <main class="Caja-Login">
-        <div class="right-login">
-        <h1>Inicio de sesion</h1>
-        <form action="">
-            <label for="">Tipo de documento</label>
-            <input type="text" placeholder="Numero de identificación">
-            <label for="">Seleccione un tipo de documento</label>
-            <select id="elemento" name="elemento">
-                <option value="opcion1">C.C</option>
-                <option value="opcion2">T.I</option>
-            </select> 
-            <button>
-                <div class="svg-wrapper-1">
-                <div class="svg-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                </svg>
-                </div>
-                </div>
-                <span>Enviar</span>
-            </button>
-        </form>
+
+<body>
+
+<main>
+    <div class="box">
+        <div class="inner-box">
+            <div class="forms-wrap">
+                <form action="index.html" autocomplete="off" class="sign-in-form">
+                    <div class="logo">
+                        <img src="./Assets/Logo.png" alt="easyclass" />
+                        <h4>Manzanas Del Cuidado</h4>
+                    </div>
+                    <div class="heading">
+                        <h2>Iniciar Sesion</h2>
+                    </div>
+                        <div class="input-wrap">
+                            <select name="" id="" class="input-field" required>
+                                <option value="">Tipo De Documento</option>
+                                <option value="">Cedula de Ciudadana</option>
+                                <option value="">Cedula de Extranjeria</option>
+                                <option value="">Pasaporte</option>
+                            </select>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="number" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>N° De Documento</label>
+                        </div>
+                        <button>
+                            <div class="svg-wrapper-1">
+                            <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                            </svg>
+                            </div>
+                            </div>
+                            <span>Enviar</span>
+                        </button>
+
+            <p class="text">
+                ¿Ya tienes usuario?
+                <a href="./Registrarse.html">Registrate aqui</a> 
+            </p>
         </div>
-        <div class="left-login"></div>
-    </main>
+        </form>
+
+        <form action="index.html" autocomplete="off" class="sign-up-form">
+            <div class="actual-form">
+            </div>
+        </form>
+    </div>
+
+    <div class="carousel">
+        <div class="images-wrapper">
+            <img src="./Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
+            <img src="./Assets/Women talking-pana.png" class="image img-2" alt="" />
+            <img src="./Assets/Women talking-rafiki.png" class="image img-3" alt="" />
+        </div>
+
+        <div class="text-slider">
+            <div class="text-wrap">
+                <div class="text-group">
+                    <h2>Create your own courses</h2>
+                    <h2>Customize as you like</h2>
+                    <h2>Invite students to your class</h2>
+                </div>
+            </div>
+
+            <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</main>
+<script src="./Js/script.js"></script>
 </body>
+
 </html>
