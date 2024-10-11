@@ -1,5 +1,11 @@
 USE BBDD_Manzanas_Cuidado;
 
+-- Insertar datos en tabla Tipo_Documento
+INSERT INTO Tipo_Documento(TiD_Nombre) VALUES
+('Cédula de ciudadanía'),
+('Pasaporte'),
+('Cédula de extranjería')
+
 -- Insertar datos en la tabla Manzana
 INSERT INTO Manzana (Man_Nombre) VALUES
 ('Puente Aranda'),
@@ -8,35 +14,26 @@ INSERT INTO Manzana (Man_Nombre) VALUES
 ('San Cristobal'),
 ('Kennedy');
 
--- Insertar datos en la tabla Solicitud
-INSERT INTO Solicitud (Sol_Establecimiento) VALUES
-('Establecimiento 1'),
-('Establecimiento 2'),
-('Establecimiento 3'),
-('Establecimiento 4'),
-('Establecimiento 5');
-
 -- Insertar datos en la tabla Servicio
 INSERT INTO Servicio (Ser_Nombre, Ser_Descripcion) VALUES
-('Servicio 1', 'Descripción del Servicio 1'),
-('Servicio 2', 'Descripción del Servicio 2'),
-('Servicio 3', 'Descripción del Servicio 3'),
-('Servicio 4', 'Descripción del Servicio 4'),
-('Servicio 5', 'Descripción del Servicio 5');
+('Estudios', 'Oportunidad de estudiar y mejorar sus conocimientos'),
+('Emprendimiento', 'Apoyo para emprender nuevos negocios y proyectos'),
+('Asesoría Jurídica', 'Orientación y asesoría legal para las cuidadoras'),
+('Lavandería Comunitaria', 'Servicio gratuito para lavar la ropa de las cuidadoras y sus familias'),
+('Asesoría Psicológica', 'Atención y apoyo psicológico para el bienestar mental');
 
--- Insertar datos en la tabla Manzana_Servicio
-INSERT INTO Manzana_Servicio (Man_ID, Ser_ID) VALUES
-(1, 1),
-(1, 2),
-(2, 3),
-(3, 4),
-(4, 5);
+-- Insertar datos en la tabla Solicitud
+INSERT INTO Solicitud (Sol_Establecimiento, Sol_Fecha, Man_ID, Ser_ID) VALUES
+('Centro Comunitario Puente Aranda', '2024-01-15', 1, 1),
+('Centro Comunitario Suba', '2024-02-20', 2, 2),
+('Centro Comunitario Fontibón', '2024-03-10', 3, 3),
+('Centro Comunitario San Cristobal', '2024-04-05', 4, 4),
+('Centro Comunitario Kennedy', '2024-05-18', 5, 5);
 
 -- Insertar datos en la tabla Usuario
-INSERT INTO Usuario (Usu_Tipo_Documento, Usu_Nombre_Usuario, Usu_Contrasena, Usu_Nombre, Usu_Telefono, Usu_Email, Man_ID, Sol_ID) VALUES
-('Cedula de Extranjeria', 'usuario1', 'pass1', 'Juan Pérez', '123456789', 'juan@example.com', 1, 1),
-('Cedula de Ciudadana', 'usuario2', 'pass2', 'Ana Gómez', '987654321', 'ana@example.com', 2, 2),
-('Cedula de Extranjeria', 'usuario3', 'pass3', 'Luis Martínez', '456789123', 'luis@example.com', 3, 3),
-('Cedula de Ciudadana', 'usuario4', 'pass4', 'María López', '321654987', 'maria@example.com', 4, 4),
-('Cedula de Extranjeria', 'usuario5', 'pass5', 'Carlos Sánchez', '789456123', 'carlos@example.com', 5, 5);
-
+INSERT INTO Usuario (TiD_ID, Usu_Documento, Usu_Nombre, Usu_Contrasena, Usu_Telefono, Usu_Email, Man_ID, Sol_ID) VALUES
+(1, '123456789', 'Ana Gómez', 'password123', '3001234567', 'ana.gomez@example.com', 1, 1),
+(2, 'A98765432', 'John Smith', 'password456', '3019876543', 'john.smith@example.com', 2, 2),
+(3, 'E76543210', 'Laura Martínez', 'password789', '3027654321', 'laura.martinez@example.com', 3, 3),
+(1, '234567890', 'Carlos Pérez', 'passwordabc', '3002345678', 'carlos.perez@example.com', 4, 4),
+(2, 'B87654321', 'Sofía Rodríguez', 'passworddef', '3018765432', 'sofia.rodriguez@example.com', 5, 5);
