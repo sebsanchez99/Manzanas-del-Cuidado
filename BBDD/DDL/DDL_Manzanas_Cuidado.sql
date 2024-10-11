@@ -7,15 +7,12 @@ USE BBDD_Manzanas_Cuidado;
 -- Tabla Manzana
 CREATE TABLE Manzana(
     Man_ID INT(5) PRIMARY KEY AUTO_INCREMENT,
-    Man_Nombre VARCHAR(30),
-    Man_Localidad VARCHAR(30),
-    Man_Direccion VARCHAR(50)
+    Man_Nombre VARCHAR(30)
 );
 
 -- Tabla Solicitud
 CREATE TABLE Solicitud(
     Sol_ID INT(5) PRIMARY KEY AUTO_INCREMENT,
-    Sol_Municipio VARCHAR(30),
     Sol_Establecimiento VARCHAR(30)
 );
 
@@ -40,11 +37,10 @@ CREATE TABLE Usuario(
     Usu_ID INT(5) PRIMARY KEY AUTO_INCREMENT,
     Usu_Tipo_Documento VARCHAR(20),
     Usu_Nombre VARCHAR(20),
+    Usu_Nombre_Usuario VARCHAR(15),
+    Usu_Contrasena VARCHAR(30),
     Usu_Telefono VARCHAR(20),
     Usu_Email VARCHAR(30),
-    Usu_Ciudad VARCHAR(25),
-    Usu_Direccion VARCHAR(50),
-    Usu_Ocupacion VARCHAR(25),
     Man_ID INT(5),
     Sol_ID INT(5),
     FOREIGN KEY(Man_ID) REFERENCES Manzana(Man_ID),
