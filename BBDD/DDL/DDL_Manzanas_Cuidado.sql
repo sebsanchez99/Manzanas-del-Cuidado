@@ -42,9 +42,7 @@ CREATE TABLE Usuario(
     Usu_Contrasena VARCHAR(30),
     Usu_Telefono VARCHAR(20),
     Usu_Email VARCHAR(30),
-    Man_ID INT(5),
     Sol_ID INT(5),
     FOREIGN KEY(TiD_ID) REFERENCES Tipo_Documento(TiD_ID),
-    FOREIGN KEY(Man_ID) REFERENCES Manzana(Man_ID),
     FOREIGN KEY(Sol_ID) REFERENCES Solicitud(Sol_ID)
 );
