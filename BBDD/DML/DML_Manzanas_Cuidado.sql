@@ -31,9 +31,9 @@ INSERT INTO Solicitud (Sol_Establecimiento, Sol_Fecha, Man_ID, Ser_ID) VALUES
 ('Centro Comunitario Kennedy', '2024-05-18', 5, 5);
 
 -- Insertar datos en la tabla Usuario
-INSERT INTO Usuario (TiD_ID, Usu_Documento, Usu_Nombre, Usu_Contrasena, Usu_Telefono, Usu_Email, Man_ID, Sol_ID) VALUES
-(1, '123456789', 'Ana Gómez', 'password123', '3001234567', 'ana.gomez@example.com', 1, 1),
-(2, 'A98765432', 'John Smith', 'password456', '3019876543', 'john.smith@example.com', 2, 2),
-(3, 'E76543210', 'Laura Martínez', 'password789', '3027654321', 'laura.martinez@example.com', 3, 3),
-(1, '234567890', 'Carlos Pérez', 'passwordabc', '3002345678', 'carlos.perez@example.com', 4, 4),
-(2, 'B87654321', 'Sofía Rodríguez', 'passworddef', '3018765432', 'sofia.rodriguez@example.com', 5, 5);
+INSERT INTO Usuario (TiD_ID, Usu_Documento, Usu_Nombre, Usu_Contrasena, Usu_Telefono, Usu_Email, Sol_ID) VALUES
+(1, '123456789', 'Ana Gómez', 'password123', '3001234567', 'ana.gomez@example.com', 1),
+(2, 'A98765432', 'John Smith', 'password456', '3019876543', 'john.smith@example.com', 2),
+(3, 'E76543210', 'Laura Martínez', 'password789', '3027654321', 'laura.martinez@example.com', 3),
+(1, '234567890', 'Carlos Pérez', 'passwordabc', '3002345678', 'carlos.perez@example.com', 4),
+(2, 'B87654321', 'Sofía Rodríguez', 'passworddef', '3018765432', 'sofia.rodriguez@example.com', 5);
