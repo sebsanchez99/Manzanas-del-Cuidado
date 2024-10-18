@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegación Lateral</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</head>
+
+<body class="home">
+    <div class="menu-btn" id="menu-btn">
+        <ion-icon name="menu-outline"></ion-icon>
+    </div>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <img src="./Assets/Logo.png" alt="">
+            <h3>Manzanas del</h3>
+            <h3>Cuidado</h3>
+        </div>
+        <ul>
+            <li class="submenu">
+
+                    <a href="#" class="submenu-btn">
+                        <div class="submenu-item">
+                        <ion-icon name="home-outline" class="home-icon"></ion-icon>
+                        <p>Inicio</p>
+                        <ion-icon name="chevron-down-outline" class="down-icon"></ion-icon>
+                    </div>
+                    </a>
+                
+                <ul class="submenu-content">
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Mi Perfil</a></li>
+                </ul>
+            </li>
+
+            <li><a href="./Servicios.html">Servicios</a></li>
+            <li><a href="#">Cerrar Sesion</a></li>
+            
+        </ul>
+
+    </nav>
+
+    <div class="content">
+        <h1>Bienvenido <span id="nombreusuario"> </span></h1>
+        <div class="contenido-1">
+            <input type="submit" value="Listado de servicios">
+            <input type="submit" value="Listado de Servicios Guardados">
+
+        </div>
+        
+        
+        
+        
+    </div>
+
+    <script src="./Js/script-2.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+
+            //Obtener el nombre de usuario
+            const xhrNombreUsuario = new XMLHttpRequest()
+            xhrNombreUsuario.open('GET','/obtener-usuario',true)
+            xhrNombreUsuario.onreadystatechange=function(){
+                if(xhrNombreUsuario.readyState===4 && xhrNombreUsuario.status===200 ){
+                    
+                    const usuario=JSON.parse(xhrNombreUsuario.responseText)
+                    document.getElementById('nombreusuario').textContent=usuario
+                    
+                } else{
+                    console.error('No se pudo poner el usuario')
+                }
+                }
+            xhrNombreUsuario.send()
+        })
+    </script>
+</body>
+
+</html>

@@ -1,106 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesion</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-</head>
 
-<body>
+</head>
+    
 <main>
     <div class="box">
         <div class="inner-box">
             <div class="forms-wrap">
                 <form action="index.html" autocomplete="off" class="sign-in-form">
+
                     <div class="logo">
                         <img src="./Assets/Logo.png" alt="easyclass" />
                         <h4>Manzanas Del Cuidado</h4>
                     </div>
+
                     <div class="heading">
-                        <h2>Registrate</h2>
+                        <h2>Registrarse</h2>
+                    </div>
+
+                    <div class="actual-form">
                         <div class="input-wrap">
-                            <select name="Usu_Tipo_Documento" id="" class="input-field">
-                              <option value="" ></option>
-                              <option value="1">Cedula De Ciudadania</option>
-                              
-                            </select>
-                            <label>Tipo de Documento</label>
-                          </div>
-                          <div class="input-wrap">
-                            <input
-                              type="number"
-                              minlength="4"
-                              class="input-field"
-                              name="Usu_Nombre"
-                              autocomplete="off"
-                              required
-                            />
-                            <label>N° de Documento</label>
-                          </div>
-                        <div class="input-wrap">
-                            <input
-                              type="text"
-                              minlength="4"
-                              class="input-field"
-                              name="Usu_Nombre"
-                              autocomplete="off"
-                              required
-                            />
+                            <input type="text" minlength="4" class="input-field" autocomplete="off" required />
                             <label>Nombre Completo</label>
-                          </div>
-                          
-                          <div class="input-wrap">
-                            <input
-                              type="email"
-                              minlength="4"
-                              class="input-field"
-                              name="Usu_Documento"
-                              autocomplete="off"
-                              required
-                            />
-                            <label>Email</label>
-                          </div>
-                          <div class="input-wrap">
-                            <input
-                              type="password"
-                              minlength="4"
-                              class="input-field"
-                              name="Usu_Documento"
-                              autocomplete="off"
-                              required
-                            />
-                            <label>Contraseña</label>
-                          </div>
-                          <input type="submit" value="Registrarse" class="sign-btn" />
+                        </div>
 
-            
+                        <div class="input-wrap">
+                            <select name="" id="" class="input-field" required>
+                                <option value=""></option>
+                                <option value="">Cedula de Ciudadana</option>
+                                <option value="">Cedula de Extranjeria</option>
+                                <option value="">Pasaporte</option>
+                            </select>
+                            <label for="">Tipo de Documento</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="number" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>N° De Documento</label>
+                        </div>
+                        <div class="input-wrap">
+                          <select name="" id="" class="input-field" required>
+                              <option value=""></option>
+                              <option value="">Puente Aranda</option>
+                              <option value="">Suba</option>
+                              <option value="">Fontibon</option>
+                              <option value="">San Cristobal</option>
+                          </select>
+                          <label for="">Manzana</label>
+                      </div>
+ 
+            <input type="submit" value="Registrarse" class="sign-btn" />
+
+           
         </div>
         </form>
 
-        <form action="index.html" autocomplete="off" class="sign-up-form">
-            <div class="actual-form">
+            <form action="index.html" autocomplete="off" class="sign-up-form">
+              <div class="logo">
+                <img src="./img/logo.png" alt="easyclass" />
+                <h4>Manzanas Del Cuidado</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Recuperacion de contraseña</h2>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Nombre Completo</label>
+                </div>
+                <div class="input-wrap">
+                  <select name="" id="" class="input-field">
+                    <option value="" ></option>
+                    <option value="">Cedula De Ciudadania</option>
+                    <option value="">Cedula De Extranjeria</option>
+                    <option value="">Pasaporte</option>
+                  </select>
+                  <label>Documento</label>
+                </div>
+
+                
+
+                <div class="input-wrap">
+                  <input
+                    type="number"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Recupera tu contraseña</label>
+                </div>
+
+                <input type="submit" value="Sign Up" class="sign-btn" />
+                <div class="heading">
+                  <h6>Te Acordaste?</h6>
+                  <a href="#" class="toggle">Iniciar Sesion</a>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+              <img src="./Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
+              <img src="./Assets/Women talking-pana.png" class="image img-2" alt="" />
+              <img src="./img/image3.png" class="image img-3" alt="" />
             </div>
-        </form>
-    </div>
 
-    <div class="carousel">
-        <div class="images-wrapper">
-            <img src="./Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
-            <img src="./Assets/Women talking-pana.png" class="image img-2" alt="" />
-            <img src="./Assets/Women talking-rafiki.png" class="image img-3" alt="" />
-        </div>
-
-        <div class="text-slider">
-            <div class="text-wrap">
+            <div class="text-slider">
+              <div class="text-wrap">
                 <div class="text-group">
                     <h2>Son un espacio transformador</h2>
                     <h2>Diseñado Para Mujeres</h2>
                     <h2>Una red de apoyo accessible y gratuita</h2>
                 </div>
-            </div>
+              </div>
 
-            <div class="bullets">
+              <div class="bullets">
                 <span class="active" data-value="1"></span>
                 <span data-value="2"></span>
                 <span data-value="3"></span>
@@ -109,8 +139,10 @@
     </div>
     </div>
 </div>
+
 </main>
 <script src="./Js/script.js"></script>
+
 </body>
 
 </html>

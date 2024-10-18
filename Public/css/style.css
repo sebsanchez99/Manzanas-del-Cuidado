@@ -817,3 +817,185 @@ button:hover .svg-wrapper {
 button:hover svg {
   transform: rotate(45deg);
 }
+/* --------------------------------------------Cliente---------------------------------- */
+
+.menu-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  color: #000;
+  height: 100vh;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+.sidebar-logo{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1.5px solid #000;
+}
+.sidebar img{
+  width: 50px;
+
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  width: 100%;
+  margin: auto;
+  list-style-type: none;
+
+}
+
+.sidebar ul li {
+  padding: 20px;
+  text-align: left;
+}
+
+
+.sidebar ul li a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  font-weight: 600;
+  font-size: 20px;
+  transition: .5s;
+}
+
+.sidebar ul li a:hover {
+  font-size: 20px;
+  border-radius: 10px;
+}
+/* Estilos para el submenu */
+.submenu-item{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+}
+.submenu .submenu-btn .home-icon{
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.submenu .submenu-content {
+  display: none;
+  background-color: #fff;
+  width: 80%;
+}
+
+.submenu.active .submenu-content {
+  display: block;
+}
+
+.submenu-content li {
+  padding-left: 30px;
+  list-style: disc;
+}
+
+.submenu-content li a {
+  font-size: 16px;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 40px;
+  transition: margin-left 0.3s ease;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .sidebar {
+    width: 200px;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .sidebar.active + .content {
+    margin-left: 200px;
+  }
+}
+/* contenido usuario */
+.contenido-1{
+  width: 90%;
+  height: max-content;
+  display: flex;
+
+}
+.contenido-1 input{
+  background-color: #000;
+  color: #fff;
+  border: 0;
+  width: 40%;
+  font-size: 2.5rem;
+  border-radius: 20px;
+  margin-right: 2%;
+  transition: .5s;
+}
+.contenido-1 input:hover{
+  background-color: #fff;
+  color: #000;
+}
+.contenido-1 img{
+  width: 20%;
+  border-radius: 20px;
+}
+.contenido-2{
+  width: 100%;
+  height: max-content;
+}
+.contenido-2 input{
+  margin: 10px 0;
+  padding: 1%;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  font-size: 3rem;
+  transition: .5s;
+}
+.contenido-2 input:hover{
+  color: #fff;
+  background-color: #000;
+}
+.contenido-2 img{
+  width: 20%;
+  border-radius: 20px;
+}
+/* Servicios */
+.servicios {
+padding: 5%;
+}
+.servicios table{
+  width: 100%;
+}
+.servicios table thead tr th{
+  background-color: #f7f7f7;
+  padding: 2% 0;
+  font-size: 1rem;
+
+}
+.servicios table tbody tr td{
+  background-color: #fff;
+}
