@@ -8,10 +8,11 @@ const localStrategy = new Strategy( { usernameField: 'Usu_Email', passwordField:
         const query = 'SELECT * FROM Usuario WHERE Usu_Email = ? AND Usu_Contrasena = ?'
         // Ejecuta la consulta para verificar email y contraseña
         const results = await mySQL.executeQuery(query, [email, password]).finally(() =>  mySQL.closeConnection())
+        const user = results[0]
         if (results.length === 0) {
           return done(null, false, { messages: 'Autenticación incorrecta' })
         }
-        return done(null, true)
+        return done(null, user)
       } catch (error) {
         console.error(error)
         return done(error, false)

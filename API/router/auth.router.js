@@ -5,8 +5,6 @@ const router = Router()
 
 // http://localhost:3000/auth/login
 // Autentica el usuario con la base de datos usando estrategia local de Passport
-router.post('/login', passport.authenticate('local', { session: false, failureRedirect: '/public/login' }), (req, res) => {
-    res.redirect('/public/inicio')
-})
+router.post('/login', passport.authenticate('local', { failureRedirect: '/public/login', successRedirect: '/public/inicio' }))
 
 module.exports = router
