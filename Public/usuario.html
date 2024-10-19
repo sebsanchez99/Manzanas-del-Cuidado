@@ -47,37 +47,22 @@
     </nav>
 
     <div class="content">
-        <h1>Bienvenido <span id="nombreusuario"> </span></h1>
+        <h1>Bienvenido <span id="nombreUsuario"> </span></h1>
         <div class="contenido-1">
             <input type="submit" value="Listado de servicios">
             <input type="submit" value="Listado de Servicios Guardados">
 
         </div>
-        
-        
-        
-        
     </div>
 
     <script src="/Js/script-2.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', ()=>{
-
-            //Obtener el nombre de usuario
-            const xhrNombreUsuario = new XMLHttpRequest()
-            xhrNombreUsuario.open('GET','/obtener-usuario',true)
-            xhrNombreUsuario.onreadystatechange=function(){
-                if(xhrNombreUsuario.readyState===4 && xhrNombreUsuario.status===200 ){
-                    
-                    const usuario=JSON.parse(xhrNombreUsuario.responseText)
-                    document.getElementById('nombreusuario').textContent=usuario
-                    
-                } else{
-                    console.error('No se pudo poner el usuario')
-                }
-                }
-            xhrNombreUsuario.send()
-        })
+        fetch('http://localhost:3000/user/infoUser')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('nombreUsuario').textContent = data.Usu_Nombre
+            })
+            .catch(err => console.error(`Error al obtener los datos del usuario: ${err}`))
     </script>
 </body>
 
