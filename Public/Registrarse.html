@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
     
@@ -13,10 +13,10 @@
     <div class="box">
         <div class="inner-box">
             <div class="forms-wrap">
-                <form action="index.html" autocomplete="off" class="sign-in-form">
+                <form action="http://localhost:3000/user/register" method="post" autocomplete="off" class="sign-in-form">
 
                     <div class="logo">
-                        <img src="./Assets/Logo.png" alt="easyclass" />
+                        <img src="/Assets/Logo.png" alt="easyclass" />
                         <h4>Manzanas Del Cuidado</h4>
                     </div>
 
@@ -26,30 +26,40 @@
 
                     <div class="actual-form">
                         <div class="input-wrap">
-                            <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                            <input name="Usu_Nombre" type="text" minlength="4" class="input-field" autocomplete="off" required />
                             <label>Nombre Completo</label>
                         </div>
 
                         <div class="input-wrap">
-                            <select name="" id="" class="input-field" required>
+                            <input name="Usu_Email" type="text" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Correo Electrónico</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <input name="Usu_Contrasena" type="text" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Contraseña</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <select name="TiD_ID" id="" class="input-field" required>
                                 <option value=""></option>
-                                <option value="">Cedula de Ciudadana</option>
-                                <option value="">Cedula de Extranjeria</option>
-                                <option value="">Pasaporte</option>
+                                <option value="1">Cedula de ciudadanía</option>
+                                <option value="2">Cedula de extranjería</option>
+                                <option value="3">Pasaporte</option>
                             </select>
                             <label for="">Tipo de Documento</label>
                         </div>
                         <div class="input-wrap">
-                            <input type="number" minlength="4" class="input-field" autocomplete="off" required />
+                            <input name="Usu_Documento" type="number" minlength="4" class="input-field" autocomplete="off" required />
                             <label>N° De Documento</label>
                         </div>
                         <div class="input-wrap">
-                          <select name="" id="" class="input-field" required>
+                          <select name="Man_ID" id="" class="input-field" required>
                               <option value=""></option>
-                              <option value="">Puente Aranda</option>
-                              <option value="">Suba</option>
-                              <option value="">Fontibon</option>
-                              <option value="">San Cristobal</option>
+                              <option value="1">Puente Aranda</option>
+                              <option value="2">Suba</option>
+                              <option value="3">Fontibon</option>
+                              <option value="4">San Cristobal</option>
                           </select>
                           <label for="">Manzana</label>
                       </div>
@@ -62,7 +72,7 @@
 
             <form action="index.html" autocomplete="off" class="sign-up-form">
               <div class="logo">
-                <img src="./img/logo.png" alt="easyclass" />
+                <img src="/img/logo.png" alt="easyclass" />
                 <h4>Manzanas Del Cuidado</h4>
               </div>
 
@@ -116,9 +126,9 @@
 
           <div class="carousel">
             <div class="images-wrapper">
-              <img src="./Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
-              <img src="./Assets/Women talking-pana.png" class="image img-2" alt="" />
-              <img src="./img/image3.png" class="image img-3" alt="" />
+              <img src="/Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
+              <img src="/Assets/Women talking-pana.png" class="image img-2" alt="" />
+              <img src="/Assets/Women talking-rafiki.png" class="image img-3" alt="" />
             </div>
 
             <div class="text-slider">
@@ -141,7 +151,7 @@
 </div>
 
 </main>
-<script src="./Js/script.js"></script>
+<script src="/Js/script.js"></script>
 
 </body>
 

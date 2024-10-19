@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
   </head>
   <body>
     <main>
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="index.html" autocomplete="off" class="sign-in-form">
+            <form action="http://localhost:3000/auth/login" autocomplete="off" class="sign-in-form" method="post">
               <div class="logo">
-                <img src="./Assets/Logo.png" alt="easyclass" />
+                <img src="/Assets/Logo.png" alt="easyclass" />
                 <h4>Manzanas Del Cuidado</h4>
               </div>
 
@@ -27,11 +27,11 @@
               
               
               <div class="input-wrap">
-                  <input type="email" minlength="4" class="input-field" autocomplete="off" required />
+                  <input name="Usu_Email" type="email" minlength="4" class="input-field" autocomplete="off" required />
                   <label>Email</label>
               </div>
               <div class="input-wrap">
-                <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                <input name="Usu_Contrasena" type="password" minlength="4" class="input-field" autocomplete="off" required />
                 <label>Contraseña</label>
             </div>
                 
@@ -47,7 +47,7 @@
 
             <form action="index.html" autocomplete="off" class="sign-up-form">
               <div class="logo">
-                <img src="./Assets/Logo.png" alt="easyclass" />
+                <img src="/Assets/Logo.png" alt="easyclass" />
                 <h4>Manzanas Del Cuidado</h4>
               </div>
 
@@ -101,9 +101,9 @@
 
           <div class="carousel">
             <div class="images-wrapper">
-              <img src="./Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
-              <img src="./Assets/Women talking-pana.png" class="image img-2" alt="" />
-              <img src="./img/image3.png" class="image img-3" alt="" />
+              <img src="/Assets/Woman reading-rafiki.png" class="image img-1 show" alt="" />
+              <img src="/Assets/Women talking-pana.png" class="image img-2" alt="" />
+              <img src="/Assets/Women talking-rafiki.png" class="image img-3" alt="" />
             </div>
 
             <div class="text-slider">
@@ -128,6 +128,6 @@
 
     <!-- Javascript file -->
 
-    <script src="./Js/script.js"></script>
+    <script src="/Js/script.js"></script>
   </body>
 </html>
