@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const MySQL = require("../Libs/mysql");
+const isAuthenticated = require('../middlewares/authentication')
+
 const router = Router();
 
 // http://localhost:3000/user/register
@@ -41,5 +43,11 @@ router.post("/register", async (req, res) => {
     res.status(500)
   }
 });
+
+// http://localhost:3000/user/infoUser
+// Obtiene la información del usuario
+router.get('/infoUser', isAuthenticated, (req,res) => {
+  res.json(req.user)
+})
 
 module.exports = router;
