@@ -31,6 +31,20 @@ class MySQL {
             })
         })
     }
+
+    // Método que cierra todas las conexiones en el pool
+    closeConnection() {
+        return new Promise((resolve, reject) => {
+            this.pool.end(err => {
+                if (err) {
+                    console.error(`Error al cerrar la conexión: ${err}`)
+                    return reject(err)
+                }
+                console.log('Conexión a la base de datos cerrada')
+                resolve()
+            })
+        })
+    }
 }
 
 module.exports = MySQL
