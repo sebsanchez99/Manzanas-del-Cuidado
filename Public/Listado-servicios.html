@@ -18,7 +18,7 @@
 
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-logo">
-            <img src="./Assets/Logo.png" alt="">
+            <img src="/Assets/Logo.png" alt="">
             <h3>Manzanas del</h3>
             <h3>Cuidado</h3>
         </div>
@@ -47,25 +47,37 @@
     </nav>
 
     <div class="content">
-        <h1>Bienvenido <span id="nombreUsuario"> </span></h1>
-        <div class="contenido-1">
-            <a href="./Listado-servicios.html"><input type="submit" value="Listado de servicios"></a>
-        </div>
-        <div class="contenido-1">
-            <input type="submit" value="Listado de Servicios Guardados">
-        </div>
+        <h1>Listado De Servicios</h1>
+        <a href="Crear"><input type="submit" value="Crear"></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre del Servicio</th>
+                    <th>Nombre de la Manzana</th>
+                    <th>Descripcion</th>
+                    <th>Ubicacion</th>
+                    <th>Acciones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>Estudio</td>
+                    <td>Puente Aranda</td>
+                    <td>Oportunidad de estudiar y mejorar sus conocimiento</td>
+                    <td>Calle 86a #13-42 </td>
+                    <td><a href=""><ion-icon name="create-outline"></ion-icon></a>
+                    <a href=""><ion-icon name="trash-outline"></ion-icon></a></td>
+                </tr>
+            </tbody>
+        </table>
+        
     </div>
 
     <script src="./Js/script-2.js"></script>
-    <script>
-        fetch('http://localhost:3000/user/infoUser')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('nombreUsuario').textContent = data.Usu_Nombre
-            })
-            .catch(err => console.error(`Error al obtener los datos del usuario: ${err}`))
-    </script>
-    
+
 </body>
 
 </html>

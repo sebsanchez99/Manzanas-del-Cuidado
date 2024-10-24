@@ -914,7 +914,7 @@ button:hover svg {
 }
 
 .content {
-  margin-left: 250px;
+  margin-left: 20px;
   padding: 40px;
   transition: margin-left 0.3s ease;
   width: 100%;
@@ -939,50 +939,22 @@ button:hover svg {
 }
 /* contenido usuario */
 .contenido-1{
-  width: 90%;
-  height: max-content;
-  display: flex;
-
+  width: 40%;
+  margin: auto;
+  margin-bottom: 10px;
 }
 .contenido-1 input{
-  background-color: #000;
-  color: #fff;
-  border: 0;
-  width: 40%;
-  font-size: 2.5rem;
+  width: 100%;
+  height: 40px;
+  border: none;
   border-radius: 20px;
-  margin-right: 2%;
-  transition: .5s;
+  font-size: 1rem;
 }
 .contenido-1 input:hover{
   background-color: #fff;
   color: #000;
 }
-.contenido-1 img{
-  width: 20%;
-  border-radius: 20px;
-}
-.contenido-2{
-  width: 100%;
-  height: max-content;
-}
-.contenido-2 input{
-  margin: 10px 0;
-  padding: 1%;
-  background: #fff;
-  border: 0;
-  border-radius: 20px;
-  font-size: 3rem;
-  transition: .5s;
-}
-.contenido-2 input:hover{
-  color: #fff;
-  background-color: #000;
-}
-.contenido-2 img{
-  width: 20%;
-  border-radius: 20px;
-}
+
 /* Servicios */
 .servicios {
 padding: 5%;
