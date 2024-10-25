@@ -48,7 +48,9 @@
 
     <div class="content">
         <h1>Listado De Servicios</h1>
-        <a href="Crear"><input type="submit" value="Crear"></a>
+        <div class="button">
+        <a href="/crear.html"><input type="submit" value="Crear Servicio"></a>
+    </div>
         <table>
             <thead>
                 <tr>
@@ -56,7 +58,6 @@
                     <th>Nombre del Servicio</th>
                     <th>Nombre de la Manzana</th>
                     <th>Descripcion</th>
-                    <th>Ubicacion</th>
                     <th>Acciones</th>
                 </tr>
                 
@@ -67,9 +68,9 @@
                     <td>Estudio</td>
                     <td>Puente Aranda</td>
                     <td>Oportunidad de estudiar y mejorar sus conocimiento</td>
-                    <td>Calle 86a #13-42 </td>
-                    <td><a href=""><ion-icon name="create-outline"></ion-icon></a>
-                    <a href=""><ion-icon name="trash-outline"></ion-icon></a></td>
+
+                    <td class="actions"><a href="/Actualizar.html"><ion-icon name="create-outline" class="editar"></ion-icon></a>
+                    <a href=""><ion-icon name="trash-outline" class="eliminar" onclick=""></ion-icon></a></td>
                 </tr>
             </tbody>
         </table>
@@ -77,6 +78,9 @@
     </div>
 
     <script src="/Js/script-2.js"></script>
+    <script src="/Js/script-3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 
