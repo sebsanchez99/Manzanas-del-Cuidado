@@ -10,5 +10,7 @@ router.get('/login', (req, res) => { res.sendFile(path.join(__dirname, '../../Pu
 router.get('/registro', (req, res) => { res.sendFile(path.join(__dirname, '../../Public/Registrarse.html'))})
 // Ruta de inicio de aplicación 
 router.get('/inicio', isAuthenticated, (req, res) => { res.sendFile(path.join(__dirname, '../../Public/usuario.html')) })
+//Ruta de administración de usuarios
+router.get('/usuarios', isAuthenticated, (req, res) => { res.sendFile(paht.join(__dirname,'../../Public/listado-usuarios.html')) })
 
 module.exports = router
