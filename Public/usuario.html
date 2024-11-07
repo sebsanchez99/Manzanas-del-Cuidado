@@ -41,7 +41,7 @@
             </li>
 
             <li><a href="/Servicios.html">Servicios</a></li>
-            <li><a href="#">Cerrar Sesion</a></li>
+            <li><a href="#" onclick="logout()">Cerrar Sesion</a></li>
             
         </ul>
 
@@ -58,6 +58,7 @@
     </div>
 
     <script src="/Js/script-2.js"></script>
+    <script src="/Js/auth.js"></script>
     <script>
         fetch('http://localhost:3000/user/infoUser')
             .then(res => res.json())
