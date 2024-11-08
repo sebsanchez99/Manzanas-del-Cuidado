@@ -4,7 +4,7 @@ const userRouter = require('./user.router')
 const authRouter = require('./auth.router')
 const publicRouter = require('./public.router')
 const adminRouter = require('./admin.router')
-const manzanasRouter = require('./manzanas.router')
+const servicioRouter = require('./servicio.router')
 const isAuthenticated = require('../middlewares/authentication')
 
 const router = Router()
@@ -22,6 +22,6 @@ router.use('/public', publicRouter)
 router.use('/admin', isAuthenticated, adminRouter)
 
 // Ruta para operaciones relacionadas con los servicios de la manzana
-router.use('/manzana'/* , isAuthenticated */, manzanasRouter)
+router.use('/servicio'/* , isAuthenticated */, servicioRouter)
 
 module.exports = router

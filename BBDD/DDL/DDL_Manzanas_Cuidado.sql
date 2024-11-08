@@ -53,3 +53,6 @@ CREATE TABLE Usuario(
     FOREIGN KEY(Sol_ID) REFERENCES Solicitud(Sol_ID),
     FOREIGN KEY(Man_ID) REFERENCES Manzana(Man_ID)
 );
+
+
+SELECT s.Ser_ID, s.Ser_Nombre, s.Ser_Descripcion, so.Sol_Fecha FROM Servicio s JOIN Solicitud so ON s.Ser_ID = so.Ser_ID JOIN Usuario u ON u.Sol_ID = so.Sol_ID WHERE Usu_ID = 1
