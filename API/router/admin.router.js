@@ -17,4 +17,20 @@ router.get('/getUsers', async (req, res) => {
     }
 })
 
+// http://localhost:3000/admin/deleteUser
+// Elimina un usuario
+router.delete('/deleteUser', async (req, res) => {
+    try {
+        const { userID } = req.body
+        const mySQL = new MySQL()
+        const query = 'DELETE FROM Usuario WHERE Usu_ID = ?'
+        const result = await mySQL.executeQuery(query, [userID]).finally(() => mySQL.closeConnection())
+        if (result.affectedRows == 0) req.status(500)
+        res.status(200).json({ message: 'Usuaro eliminado correctamente' })
+    } catch (error) {
+        console.error(error);
+        res.status(500)        
+    }
+})
+
 module.exports = router
