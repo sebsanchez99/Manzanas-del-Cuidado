@@ -40,7 +40,7 @@
           </a>
 
           <ul class="submenu-content">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Inicio</a></li>
             <li><a href="#">Mi Perfil</a></li>
             <li><a href="/listado-usuarios.html">Usuarios</a></li>
           </ul>
@@ -53,49 +53,25 @@
 
     <div class="content">
       <h1>Listado De Servicios</h1>
-      <div class="button">
-        <a href="/crear.html"><input type="submit" value="Crear Servicio" /></a>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre del Servicio</th>
-            <th>Fecha</th>
-            <!-- <th>Guardar</th> -->
-          </tr>
-        </thead>
-        <tbody id="userServicesTable">
-        </tbody>
-      </table>
+      <form id="serviceForm">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre del Servicio</th>
+              <th>Fecha</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="userServicesTable">
+          </tbody>
+        </table>
+      </form>
     </div>
 
     <script src="/Js/script-2.js"></script>
     <script src="/Js/auth.js"></script>
+    <script src="/Js/service.js"></script>
     <script>
-      function loadUserServices() {
-        fetch("http://localhost:3000/servicio/listarServiciosUsuario")
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            
-            const table = document.getElementById('userServicesTable')
-            table.innerHTML = ''
-            data.forEach(service => {
-                const row = document.createElement('tr')
-
-                const serviceName = document.createElement('td')
-                serviceName.textContent = service.Ser_Nombre
-                row.appendChild(serviceName)
-
-                const serviceFecha = document.createElement('td')
-                serviceFecha.textContent = service.Sol_Fecha
-                row.appendChild(serviceFecha)
-
-                table.appendChild(row)
-            });
-
-          });
-      }
       loadUserServices()
     </script>
   </body>
