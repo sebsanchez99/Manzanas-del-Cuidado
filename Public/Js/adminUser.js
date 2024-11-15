@@ -78,9 +78,26 @@ function deleteUser(user) {
 function changeDataRows(user, row) {
   row.cells[1].innerHTML = `<input type="text" name="userName">`
   row.cells[2].innerHTML = `<input type="text" name="userEmail">`
-  
+  row.cells[3].innerHTML = ''
 
+  const saveButton = document.createElement('button')
+  saveButton.textContent = 'Guardar'
+  saveButton.classList.add('save-button')
+  saveButton.click = () => editUser(user)
+  actionsCell.appendChild(saveButton)
 
+  const cancelButton = document.createElement('button')
+  cancelButton.textContent = 'Cancelar'
+  cancelButton.classList.add('cancel-button')
+  cancelButton.click = () => cancel(user)
+  actionsCell.appendChild(cancelButton)
+}
+
+function cancel(user, row) {
+  row.cells[1].textContent = user.Usu_Nombre
+  row.cells[2].textContent = user.Usu_Email
+
+  //TODO: falta restaurar celdas
 }
 
 function editUser(user) {
