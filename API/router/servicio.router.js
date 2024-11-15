@@ -81,7 +81,6 @@ router.delete('/eliminarServicio', async (req, res) => {
         const { Usu_ID } = req.user
         const { servicioID, fecha } = req.body
         const formattedDate = new Date(fecha).toISOString().split('T')[0]
-        
         const query = 'DELETE FROM Usuario_Servicio WHERE Usu_ID = ? AND Ser_ID = ? AND fecha = ?'
         const { affectedRows } = await mySQL.executeQuery(query, [Usu_ID, servicioID, formattedDate]).finally(() => mySQL.closeConnection())
         affectedRows > 0 ? res.status(200).json({ message: 'Servicio eliminado exitosamente' }) : res.status(404).json({ message: 'Servicio no encontrado' }) 
