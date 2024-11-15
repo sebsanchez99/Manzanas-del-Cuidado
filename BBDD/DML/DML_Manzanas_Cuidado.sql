@@ -44,4 +44,3 @@ INSERT INTO Usuario (TiD_ID, Usu_Documento, Usu_Nombre, Usu_Contrasena, Usu_Emai
 (3, 'E76543210', 'Laura Martínez', 'password789', 'laura.martinez@example.com', 3),
 (1, '234567890', 'Carlos Pérez', 'passwordabc', 'carlos.perez@example.com', 4),
 (2, 'B87654321', 'Sofía Rodríguez', 'passworddef', 'sofia.rodriguez@example.com', 5);
- delete FROM Usuario_servicio

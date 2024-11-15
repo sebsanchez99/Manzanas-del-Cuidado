@@ -54,17 +54,3 @@ CREATE TABLE Usuario_Servicio(
     FOREIGN KEY (Ser_ID) REFERENCES Servicio(Ser_ID)
 );
 
-
--- Consulta modificada para obtener los servicios de una solicitud específica
-SELECT s.Ser_ID, s.Ser_Nombre, s.Ser_Descripcion, us.Fecha
-FROM Servicio s
-JOIN Usuario_Servicio us ON s.Ser_ID = us.Ser_ID
-JOIN Usuario u ON u.Usu_ID = us.Usu_ID
-WHERE u.Usu_ID = 1;
-
-
-SELECT s.Ser_ID, s.Ser_Nombre, s.Ser_Descripcion 
-FROM Servicio s 
-JOIN Manzana_Servicio ms ON s.Ser_ID = ms.Ser_ID 
-JOIN Manzana m ON m.Man_ID = ms.Man_ID 
-WHERE m.Man_ID = ?
