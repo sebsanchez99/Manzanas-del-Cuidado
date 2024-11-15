@@ -32,7 +32,7 @@ function loadUsers() {
         editLink.href = '#'
         const editIcon = document.createElement('ion-icon')
         editIcon.name = 'create-outline'
-        editLink.onclick = () => editUser(user, row)
+        editLink.onclick = () => changeDataRows(user, row)
         editLink.appendChild(editIcon)
         actionsCell.appendChild(editLink)
 
@@ -65,7 +65,7 @@ function deleteUser(user) {
   })
   .then( res => res.json())
   .then( data => {
-    if (data.message == 'Usuaro eliminado correctamente') {
+    if (data.message == 'Usuario eliminado correctamente') {
       alert(data.message)
       loadUsers()
     } else {
@@ -73,6 +73,37 @@ function deleteUser(user) {
     }
   })
   .catch( _ => alert('Error al eliminar el usuario') )
+}
+
+function changeDataRows(user, row) {
+  row.cells[1].innerHTML = `<input type="text" name="userName">`
+  row.cells[2].innerHTML = `<input type="text" name="userEmail">`
+  
+
+
+}
+
+function editUser(user) {
+  if (!confirm(`¿Estás seguro que deseas guardar lo cambios ${user.Usu_Nombre}?`)) return
+
+  fetch('http://localhost:3000/admin/editUser', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userID: user.Usu_ID, userName: user.Usu_NOmbre, userEmail: user.Usu_Email})
+  })
+  .then( res => res.json())
+  .then(data => {
+    if (data.message == 'Usuario actualizado correctamente') {
+      alert(data.message)
+      loadUsers()
+    } else {
+      alert('Error al actualizar los registros del usuario')
+    }
+  })
+  .catch( _ => alert('Error al actualizar los resgitros del usuario') )
+  
 }
 
 
