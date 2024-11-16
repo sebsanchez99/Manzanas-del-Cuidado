@@ -111,30 +111,42 @@ function editUser(user) {
   form.addEventListener('click', (event) => {
     event.preventDefault()
     if (!confirm(`¿Estás seguro que deseas guardar lo cambios ${user.Usu_Nombre}?`)) return
-    let usuName
+    let name
+    let email
     const formData = new FormData(form)
-    const data = formData.get('userName')
-    data = '' ? formData.set('usuName', usus.Usu_Nombre) : 
+    let dataName = formData.get('userName')
+    let dataEmail = formData.get('userEmail')
     
+    if (dataName == '') {
+      formData.set('userName', user.Usu_Nombre)
+      name = formData.get('userName')
+    } else {
+      name = dataName
+    }
+    if (dataEmail == '') {
+      formData.set('userEmail', user.Usu_Email)
+      email = formData.get('userEmail')
+    } else {
+      email = dataEmail
+    }
     
-
-    // fetch('http://localhost:3000/admin/editUser', {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ userID: user.Usu_ID, userName: userName, userEmail: userEmail})
-    // })
-    // .then( res => res.json())
-    // .then(data => {
-    //   if (data.message == 'Usuario actualizado correctamente') {
-    //     alert(data.message)
-    //     loadUsers()
-    //   } else {
-    //     alert('Error al actualizar los registros del usuario')
-    //   }
-    // })
-    // .catch( _ => alert('Error al actualizar los resgitros del usuario') )
+    fetch('http://localhost:3000/admin/editUser', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userID: user.Usu_ID, userName: name, userEmail: email})
+    })
+    .then( res => res.json())
+    .then(data => {
+      if (data.message == 'Usuario actualizado correctamente') {
+        alert(data.message)
+        loadUsers()
+      } else {
+        alert('Error al actualizar los registros del usuario')
+      }
+    })
+    .catch( _ => alert('Error al actualizar los registros del usuario') )
   })
   
   
