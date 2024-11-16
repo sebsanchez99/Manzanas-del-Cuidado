@@ -25,27 +25,7 @@ function loadUsers() {
 
         // Columna de Acciones con los iconos de editar y eliminar
         const actionsCell = document.createElement('td')
-        actionsCell.classList.add('actions')
-
-        // Icono de editar
-        const editLink = document.createElement('a')
-        editLink.href = '#'
-        const editIcon = document.createElement('ion-icon')
-        editIcon.name = 'create-outline'
-        editLink.onclick = () => changeDataRows(user, row)
-        editLink.appendChild(editIcon)
-        actionsCell.appendChild(editLink)
-
-        // Icono de eliminar
-        const deleteLink = document.createElement('a')
-        deleteLink.href = '#'
-        const deleteIcon = document.createElement('ion-icon')
-        deleteIcon.name = 'trash-outline'
-        deleteIcon.onclick = () => deleteUser(user)
-        deleteLink.appendChild(deleteIcon)
-        actionsCell.appendChild(deleteLink)
-
-        row.appendChild(actionsCell)
+        createIcons(actionsCell, row, user)
 
         // Añade la fila al cuerpo de la tabla
         usersTable.appendChild(row)
@@ -75,51 +55,92 @@ function deleteUser(user) {
   .catch( _ => alert('Error al eliminar el usuario') )
 }
 
-function changeDataRows(user, row) {
-  row.cells[1].innerHTML = `<input type="text" name="userName">`
-  row.cells[2].innerHTML = `<input type="text" name="userEmail">`
+function createIcons(actionsCell, row, user) {
+  actionsCell.classList.add('actions')
+
+  // Icono de editar
+  const editLink = document.createElement('a')
+  editLink.href = '#'
+  const editIcon = document.createElement('ion-icon')
+  editIcon.name = 'create-outline'
+  editLink.onclick = () => changeDataRows(user, row, actionsCell)
+  editLink.appendChild(editIcon)
+  actionsCell.appendChild(editLink)
+
+  // Icono de eliminar
+  const deleteLink = document.createElement('a')
+  deleteLink.href = '#'
+  const deleteIcon = document.createElement('ion-icon')
+  deleteIcon.name = 'trash-outline'
+  deleteIcon.onclick = () => deleteUser(user)
+  deleteLink.appendChild(deleteIcon)
+  actionsCell.appendChild(deleteLink)
+
+  row.appendChild(actionsCell)
+}
+
+function changeDataRows(user, row, actionsCell) {
+  row.cells[1].innerHTML = '<input type="text" name="userName">'
+  row.cells[2].innerHTML = '<input type="text" name="userEmail">'
   row.cells[3].innerHTML = ''
 
   const saveButton = document.createElement('button')
   saveButton.textContent = 'Guardar'
   saveButton.classList.add('save-button')
-  saveButton.click = () => editUser(user)
+  saveButton.onclick = () => editUser(user),
   actionsCell.appendChild(saveButton)
 
   const cancelButton = document.createElement('button')
   cancelButton.textContent = 'Cancelar'
   cancelButton.classList.add('cancel-button')
-  cancelButton.click = () => cancel(user)
+  cancelButton.onclick = () => cancel(user, row)
   actionsCell.appendChild(cancelButton)
 }
 
 function cancel(user, row) {
   row.cells[1].textContent = user.Usu_Nombre
   row.cells[2].textContent = user.Usu_Email
+  const actionCell = row.cells[3] 
+  actionCell.innerHTML = ''
+  createIcons(actionCell, row, user)
 
-  //TODO: falta restaurar celdas
 }
 
 function editUser(user) {
-  if (!confirm(`¿Estás seguro que deseas guardar lo cambios ${user.Usu_Nombre}?`)) return
+  const form = document.getElementById('userForm') 
+  form.addEventListener('click', (event) => {
+    event.preventDefault()
+    if (!confirm(`¿Estás seguro que deseas guardar lo cambios ${user.Usu_Nombre}?`)) return
+    let usuName
+    const formData = new FormData(form)
+    const data = formData.get('userName')
+    data = '' ? formData.set('usuName', usus.Usu_Nombre) : 
+    
+    
 
-  fetch('http://localhost:3000/admin/editUser', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ userID: user.Usu_ID, userName: user.Usu_NOmbre, userEmail: user.Usu_Email})
+    // fetch('http://localhost:3000/admin/editUser', {
+    //   method: 'DELETE',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ userID: user.Usu_ID, userName: userName, userEmail: userEmail})
+    // })
+    // .then( res => res.json())
+    // .then(data => {
+    //   if (data.message == 'Usuario actualizado correctamente') {
+    //     alert(data.message)
+    //     loadUsers()
+    //   } else {
+    //     alert('Error al actualizar los registros del usuario')
+    //   }
+    // })
+    // .catch( _ => alert('Error al actualizar los resgitros del usuario') )
   })
-  .then( res => res.json())
-  .then(data => {
-    if (data.message == 'Usuario actualizado correctamente') {
-      alert(data.message)
-      loadUsers()
-    } else {
-      alert('Error al actualizar los registros del usuario')
-    }
-  })
-  .catch( _ => alert('Error al actualizar los resgitros del usuario') )
+  
+  
+  
+
+
   
 }
 
