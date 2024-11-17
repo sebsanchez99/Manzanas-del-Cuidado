@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" href="/css/cliente.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="home crear">
+
+    <h1>Crear Usuario</h1>
+    <div class="formulario">
+        <form action="" method="post">
+            <input type="text" placeholder="Nombre Completo" minlength="4" autocomplete="off" required>
+            <input type="email" placeholder="Correo Electrónico" minlength="4" autocomplete="off" required>
+            <input type="password" placeholder="Contraseña" minlength="4" autocomplete="off" required>
+            <select name="" id="">
+                <option value="">Tipo de Documento</option>
+                <option value="1">Cedula de ciudadanía</option>
+                <option value="2">Cedula de extranjería</option>
+                <option value="3">Pasaporte</option>
+            </select>
+            <input type="number" placeholder="Número de Documento ">
+            <select name="" id="">
+                <option value="">Seleccione la Manzana</option>
+                <option value=""></option>
+            </select>
+
+            <input type="submit" value="Registrar usuario">
+        </form>
+    </div>
+</body>
+
+</html>

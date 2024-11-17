@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barra de Navegación Lateral</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cliente.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
 </head>
 
-<body class="home">
+<body>
+    <!-- Barra de Navegación -->
     <div class="menu-btn" id="menu-btn">
         <ion-icon name="menu-outline"></ion-icon>
     </div>
@@ -28,25 +29,26 @@
                     <a href="#" class="submenu-btn">
                         <div class="submenu-item">
                         <ion-icon name="home-outline" class="home-icon"></ion-icon>
-                        <p>Inicio</p>
+                        <p>Dashboard</p>
                         <ion-icon name="chevron-down-outline" class="down-icon"></ion-icon>
                     </div>
                     </a>
                 
                 <ul class="submenu-content">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Mi Perfil</a></li>
-                    <li><a href="/listado-usuarios.html">Usuarios</a></li>
+                    <li><a href="/Views/Inicio.html">Inicio</a></li>
+                    <li><a href="/Views/Usuarios.html">Usuarios</a></li>
+                    <li><a href="/Views/Servicios.html">Servicios</a></li>
+                    <li><a href="/Views/Manzanas.html">Manzanas</a></li>
                 </ul>
             </li>
 
-            <li><a href="/Servicios.html">Servicios</a></li>
+
             <li><a href="" onclick="logout()">Cerrar Sesion</a></li>
             
         </ul>
 
     </nav>
-
+    <!-- Tabla -->
     <div class="content">
         <h1>Bienvenid@ <span id="nombreUsuario"> </span></h1>
 

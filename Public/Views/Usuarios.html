@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administración de usuarios</title>
+    <link rel="stylesheet" href="/css/cliente.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+
+  <body>
+
+    <a href="/Views/Inicio.html"><ion-icon name="arrow-undo-circle-outline" class="back"></ion-icon></a>
+    <div class="content-1">
+      <h1>Listado De Usuarios</h1>
+
+      <div class="button">
+        <a href="/Views/Crear_usuario.html"><input type="submit" value="Crear Usuario" /></a>
+      </div>
+      <form id="userForm">
+        <table>
+          <thead>
+            <tr>
+              <th>ID Usuario</th>
+              <th>Nombre Usuario</th>
+              <th>Email Usuario</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable"></tbody>
+        </table>
+      </form>
+    </div>
+
+    <script src="/Js/script-2.js"></script>
+    <script src="/Js/auth.js"></script>
+    <script src="/Js/adminUser.js"></script>
+    <script>
+      loadUsers();
+    </script>
+  </body>
+</html>

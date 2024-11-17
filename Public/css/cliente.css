@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  --primary-color: #9694FF;
+  --secondary-color: #ffffff;
+  --tertiary-color:#000000;
+  --fourth-color:#FFE0D2;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+body{
+  background-color: #9694FF;
+}
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #fff;
+    color: #000;
+    height: 100vh;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .sidebar-logo{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    border-bottom: 1.5px solid #000;
+  }
+  .sidebar img{
+    width: 50px;
+  
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .sidebar ul {
+    width: 100%;
+    margin: auto;
+    list-style-type: none;
+  
+  }
+  
+  .sidebar ul li {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  
+  .sidebar ul li a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    font-size: 20px;
+    transition: .5s;
+  }
+  
+  .sidebar ul li a:hover {
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  /* Estilos para el submenu */
+  .submenu-item{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .submenu .submenu-btn .home-icon{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+  .submenu .submenu-content {
+    display: none;
+    background-color: #fff;
+    width: 80%;
+  }
+  
+  .submenu.active .submenu-content {
+    display: block;
+  }
+  
+  .submenu-content li {
+    padding-left: 30px;
+    list-style: disc;
+  }
+  
+  .submenu-content li a {
+    font-size: 16px;
+  }
+  
+  .content {
+    margin-left: 20px;
+    padding: 40px;
+    transition: margin-left 0.3s ease;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: block;
+    }
+  
+    .sidebar {
+      width: 200px;
+    }
+  
+    .content {
+      margin-left: 0;
+    }
+  
+    .sidebar.active + .content {
+      margin-left: 200px;
+    }
+  }
+  .contenido-1{
+    width: 40%;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  .contenido-1 input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+  }
+  .contenido-1 input:hover{
+    background-color: #fff;
+    color: #000;
+  }
+
+  .back{
+    padding: 1%;
+    font-size: 5rem;
+    color: var(--secondary-color);
+  }
+.content-1{
+  width: 98%;
+  margin: auto;
+}
+
+  
+  /* Listado - Servicios */
+.button{
+    margin: 2%;
+  }
+  .button input{
+    padding: 1%;
+    border: none;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1rem;
+  }
+  table{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #fff;
+   
+  }
+  table th{
+    border-bottom:1px solid #fff;
+  }
+  table td{
+    border-right: 1px solid #fff;
+  }
+  table .actions{
+    padding: 10px;
+  }
+  table .actions ion-icon{
+    font-size: 2rem;
+    margin-left: 5px;
+  }
+  table .actions .editar{
+    background: #fff;
+    padding: 5px;
+    color: #000;
+    border-radius: 5px;
+  }
+  table .actions .eliminar{
+    background: #fff;
+    padding: 5px;
+    color: #000;
+    border-radius: 5px;
+  }
+  /* Crear Servicio */
+  .crear{
+    padding: 2%;
+    text-align: center;
+  }
+  .crear h1{
+    font-size: 3rem;
+  }
+  .crear .formulario{
+    margin: auto;
+    width: 70%;
+    background-color: #fff;
+    padding: 2%;
+    border: none;
+    border-radius: 20px;
+  
+  }
+  .crear .formulario .from{
+    width: 100%;
+  }
+  .crear .formulario form input,select{
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 3%;
+  
+    border: none;
+    border-bottom: 1px solid #000;
+  }
