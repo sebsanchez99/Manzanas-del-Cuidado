@@ -18,28 +18,26 @@
     <a href="/Views/Crear_manzana.html"><input type="submit" value="Crear Manzana"></a>
   </div>
 
-  <form id="">
+  <form id="manzanaForm">
     <table>
       <thead>
         <tr>
-          <th>#</th>
+          <th>ID Manzana</th>
           <th>Nombre de la Manzana</th>
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody id="">
-        <tr>
-          <td></td>
-          <td>Suba</td>
-          <td><a href="/Views/Actualizar_manzana.html">Actualizar</a></td>
-        </tr>
-      </tbody>
+      <tbody id="manzanaTable"></tbody>
     </table>
   </form>
 </div>
 
-  <script src="/Js/script-2.js"></script>
-  <script src="/Js/auth.js"></script>
+  <script src="../Js/script-2.js"></script>
+  <script src="../Js/auth.js"></script>
+  <script src="../Js/manzana.js"></script>
+  <script>
+    listarManzanasAdmin()
+  </script>
 
 </body>
 

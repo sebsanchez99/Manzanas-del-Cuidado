@@ -14,12 +14,18 @@
 
   <h1>Crear Manzana</h1>
   <div class="formulario">
-    <form action="" method="post">
+    <form id="crearManzanaForm" onsubmit="saveManzana(event)">
       <label for="">Nombre de la Manzana</label><br>
       <input type="text" name="nombre_manzana" id="nombre" required ><br>
-      <input type="submit" value="Registrar Manzana">
+      
+      <label for="servicios"></label>
+      <div id="serviciosContainer"></div>
+      <button type="submit">Crear Manzana</button>
     </form>
   </div>
 </body>
-
+<script src="../Js/manzana.js"></script>
+<script>
+  loadServices()
+</script>
 </html>
