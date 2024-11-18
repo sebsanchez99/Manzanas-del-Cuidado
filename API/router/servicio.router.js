@@ -18,7 +18,21 @@ router.get('/listarServiciosManzana', async (req, res) => {
         const servicios = await mySQL.executeQuery(query, [Man_ID]).finally(() => mySQL.closeConnection())
         res.json(servicios)
     } catch (error) {
-        console.error(error);
+        console.error(error)
+        res.status(500)
+    }
+})
+
+// http://localhost:3000/servicio/listarServicios
+// Trae todos los servicios
+router.get('/listarServicios', async (req, res) => {
+    try {
+        const mySQL = new MySQL()
+        const query = 'SELECT Ser_ID, Ser_Nombre FROM Servicio'
+        const servicios = await mySQL.executeQuery(query).finally(() => mySQL.closeConnection())
+        res.json(servicios)
+    } catch (error) {
+        console.error(error)
         res.status(500)
     }
 })
@@ -27,29 +41,29 @@ router.get('/listarServiciosManzana', async (req, res) => {
 // Guarda los servicios que seleccionó el usuario
 router.post('/guardarServicios', async (req, res) => {
     try {
-        const mySQL = new MySQL();
-        const { Usu_ID } = req.user;
-        const { servicios, fecha } = req.body;
-        console.log('fecha: ',fecha);
+        const mySQL = new MySQL()
+        const { Usu_ID } = req.user
+        const { servicios, fecha } = req.body
+        console.log('fecha: ',fecha)
         
         // Insertar en la tabla Usuario_Servicio para cada servicio seleccionado
         const insertPromises = servicios.map(idServicio => {
-            const queryServicio = 'INSERT INTO Usuario_Servicio(Usu_ID, Ser_ID, fecha) VALUES(?, ?, ?)';
-            return mySQL.executeQuery(queryServicio, [Usu_ID, idServicio, fecha]);
-        });
+            const queryServicio = 'INSERT INTO Usuario_Servicio(Usu_ID, Ser_ID, fecha) VALUES(?, ?, ?)'
+            return mySQL.executeQuery(queryServicio, [Usu_ID, idServicio, fecha])
+        })
         // Esperar a que todas las inserciones de servicios se completen
-        const results = await Promise.all(insertPromises);
+        const results = await Promise.all(insertPromises)
         // Verificar que todas las inserciones hayan sido exitosas
         if (results.some(result => result.affectedRows === 0)) {
-            return res.status(500).json({ message: 'Error al guardar alguno de los servicios' });
+            return res.status(500).json({ message: 'Error al guardar alguno de los servicios' })
         }
-        await mySQL.closeConnection();
-        res.status(200).json({ message: 'Operación exitosa' });
+        await mySQL.closeConnection()
+        res.status(200).json({ message: 'Operación exitosa' })
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error interno del servidor' });
+        console.error(error)
+        res.status(500).json({ message: 'Error interno del servidor' })
     }
-});
+})
 
 
 
@@ -68,7 +82,7 @@ router.get('/listarServiciosUsuario', async (req, res) => {
         const serviciosUsuario = await mySQL.executeQuery(query, [Usu_ID]).finally(() => mySQL.closeConnection())
         res.json(serviciosUsuario)
     } catch (error) {
-        console.error(error);
+        console.error(error)
         res.status(500).json({message: 'Error interno del servidor'})     
     }
 })
@@ -85,7 +99,7 @@ router.delete('/eliminarServicio', async (req, res) => {
         const { affectedRows } = await mySQL.executeQuery(query, [Usu_ID, servicioID, formattedDate]).finally(() => mySQL.closeConnection())
         affectedRows > 0 ? res.status(200).json({ message: 'Servicio eliminado exitosamente' }) : res.status(404).json({ message: 'Servicio no encontrado' }) 
     } catch (error) {
-        console.error(error);
+        console.error(error)
         res.status(500).json({message: 'Error interno del servidor'}) 
     }
 })
