@@ -221,14 +221,3 @@ body{
     border-radius: 20px;
   
   }
-  .crear .formulario .from{
-    width: 100%;
-  }
-  .crear .formulario form input,select{
-    width: 100%;
-    padding: 2%;
-    margin-bottom: 3%;
-  
-    border: none;
-    border-bottom: 1px solid #000;
-  }
