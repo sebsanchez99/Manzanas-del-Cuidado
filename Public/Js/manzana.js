@@ -36,7 +36,10 @@ function listarManzanasAdmin() {
                 const actionCell = document.createElement('td')
 
                 // Botón de Actualizar
-                const editButton = document.createElement('button')
+                const editButton = document.createElement('a')
+                editButton.href= '#a_manzana'
+                const editIcon = document.createElement('ion-icon')
+                editIcon.name = 'create-outline'
                 editButton.textContent = 'Actualizar'
                 editButton.onclick = () => {
                     // Lógica para actualizar la manzana

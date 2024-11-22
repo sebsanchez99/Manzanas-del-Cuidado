@@ -11,8 +11,40 @@
 </head>
 
 <body>
-  <a href="/Views/Inicio.html"><ion-icon name="arrow-undo-circle-outline" class="back"></ion-icon></a>
-  <div class="content-1">
+  <!-- Barra de Navegación -->
+  <div class="menu-btn" id="menu-btn">
+    <ion-icon name="menu-outline"></ion-icon>
+</div>
+
+<nav class="sidebar" id="sidebar">  
+    <div class="sidebar-logo">
+        <img src="/Assets/Logo.png" alt="">
+        <h3>Manzanas del</h3>
+        <h3>Cuidado</h3>
+    </div>
+    <ul>
+        <li><a href="/Views/Inicio.html">Inicio</a></li>
+        <li><a href="/Views/Servicios.html">Mis Servicios</a></li>
+        <li class="submenu">
+                <a href="#" class="submenu-btn">
+                    <div class="submenu-item">
+                    <ion-icon name="home-outline" class="home-icon"></ion-icon>
+                    <p>Admin</p>
+                    <ion-icon name="chevron-down-outline" class="down-icon"></ion-icon>
+                </div>
+                </a>
+            <ul class="submenu-content">
+
+                <li><a href="/Views/Usuarios.html">Usuarios</a></li>
+                <li><a href="/Views/Manzanas.html">Manzanas</a></li>
+                <li><a href="Crear_servicio.html">Crear Servicio</a></li>
+            </ul>
+        </li>
+        <li><a href="" onclick="logout()">Cerrar Sesion</a></li>
+    </ul>
+
+</nav>
+  <div class="content">
   <h1>Listado De Manzanas</h1>
   <div class="button">
     <a href="/Views/Crear_manzana.html"><input type="submit" value="Crear Manzana"></a>
@@ -31,7 +63,14 @@
     </table>
   </form>
 </div>
-
+<h1>Actualizar Manzana</h1>
+  <div class="formulario" id="a_manzana" >
+    <form action="" method="post">
+      <label for="">Nombre de la Manzana</label><br>
+      <input type="text" name="nombre_manzana" id="nombre" required ><br>
+      <input type="submit" value="Actualizar Manzana">
+    </form>
+  </div>
   <script src="../Js/script-2.js"></script>
   <script src="../Js/auth.js"></script>
   <script src="../Js/manzana.js"></script>

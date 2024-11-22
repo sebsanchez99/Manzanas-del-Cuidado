@@ -151,6 +151,8 @@ body{
   }
 
   .back{
+    display: flex;
+    left: 10%;
     padding: 1%;
     font-size: 5rem;
     color: var(--secondary-color);
