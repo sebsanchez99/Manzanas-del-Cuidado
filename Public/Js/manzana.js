@@ -38,6 +38,7 @@ function listarManzanasAdmin() {
                 // Botón de Actualizar
                 const editButton = document.createElement('a')
                 editButton.href= '#a_manzana'
+                editButton.className = 'Amanzana'
                 const editIcon = document.createElement('ion-icon')
                 editIcon.name = 'create-outline'
                 editButton.textContent = 'Actualizar'

@@ -223,3 +223,25 @@ body{
     border-radius: 20px;
   
   }
+  .Amanzana{
+    transform: scale(0);
+  }
+  .a-manzana{
+    width: 40%;
+    margin: 1% auto;
+    text-align: center;
+    background: var(--secondary-color);
+    padding: 2%;
+    border-radius: 20px;    
+    line-height: 50px;
+    transform: scale(0);
+    transition: transform .3s ease-in-out;
+  }
+  .a-manzana:target{
+    transform: scale(1);
+  }
+  .a-manzana .close{
+    text-align: right;
+    font-size: 2rem;
+    color: var(--tertiary-color);
+  }
