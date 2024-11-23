@@ -113,3 +113,25 @@ function deleteUserService(service) {
     .catch( _ => alert('Error al intentar eliminar el servicio'))
 }
 
+function crearServicio(event) {
+    event.preventDefault()
+    const form = document.getElementById("formularioServicio")
+    const formData = new FormData(form) 
+    const nombreServicio = formData.get("Ser_Nombre")
+    const descripcionServicio = formData.get("Ser_Descripcion") 
+    fetch('http://localhost:3000/servicio/crearServicio', {
+        method : "post",
+        headers : {
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({Ser_Descripcion : descripcionServicio, Ser_Nombre : nombreServicio})
+    })
+    .then( res => res.json())
+    .then( datos => {
+        if (datos.message == 'Servicio creado exitosamente') {
+            alert(datos.message)
+        } else {
+            alert(datos.message)
+        }
+    }) 
+}

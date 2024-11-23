@@ -43,17 +43,14 @@
 </nav>
   <h1>Crear Servicio</h1>
   <div class="formulario">
-    <form action="" method="post">
-      <input type="text" placeholder="Nombre del Servicio">
-      <input type="text" placeholder="Descripcion">
-      <select name="" id="">
-        <option value="">Seleccione la Manzana</option>
-        <option value=""></option>
-      </select>
-      
+    <form id="formularioServicio" onsubmit="crearServicio(event)">
+      <input type="text" placeholder="Nombre del Servicio" name="Ser_Nombre">
+      <input type="text" placeholder="Descripcion" name="Ser_Descripcion">
       <input type="submit" value="Registrar Servicio">
     </form>
   </div>
 </body>
 <script src="../Js/script-2.js"></script>
+<script src="../Js/auth.js"></script>
+<script src="../Js/service.js"></script>
 </html>

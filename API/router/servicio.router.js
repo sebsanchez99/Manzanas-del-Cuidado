@@ -104,4 +104,19 @@ router.delete('/eliminarServicio', async (req, res) => {
     }
 })
 
+// http://localhost:3000/servicio/crearServicio
+// Crear un nuevo servicio
+router.post('/crearServicio', async (req, res) =>{
+    try {
+        const mySQL = new MySQL()
+        const { Ser_Nombre, Ser_Descripcion } = req.body
+        const query = 'INSERT INTO Servicio (Ser_Nombre, Ser_Descripcion) VALUES (?,?)'
+        const { affectedRows } = await mySQL.executeQuery(query, [Ser_Nombre, Ser_Descripcion]).finally(() => mySQL.closeConnection())
+        affectedRows > 0 ? res.status(200).json({ message: 'Servicio creado exitosamente' }) : res.status(404).json({ message: 'No se pudo crear el servicio' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({message: 'Error interno del servidor'}) 
+    }
+})
+
 module.exports = router

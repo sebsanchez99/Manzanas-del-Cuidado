@@ -26,6 +26,6 @@ router.use('/public', publicRouter)
 router.use('/admin', isAuthenticated, adminRouter)
 
 // Ruta para operaciones relacionadas con los servicios de la manzana
-router.use('/servicio'/* , isAuthenticated */, servicioRouter)
+router.use('/servicio' , isAuthenticated , servicioRouter)
 
 module.exports = router
