@@ -1,56 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Servicio</title>
+    <link rel="stylesheet" href="/css/cliente.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crear Servicio</title>
-  <link rel="stylesheet" href="/css/cliente.css" />
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</head>
-
-<body class="home crear">
-   <!-- Barra de Navegación -->
-   <div class="menu-btn" id="menu-btn">
-    <ion-icon name="menu-outline"></ion-icon>
-</div>
-<nav class="sidebar" id="sidebar">  
-    <div class="sidebar-logo">
-        <img src="/Assets/Logo.png" alt="">
+  <body class="home crear">
+    <!-- Barra de Navegación -->
+    <div class="menu-btn" id="menu-btn">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <img src="/Assets/Logo.png" alt="" />
         <h3>Manzanas del</h3>
         <h3>Cuidado</h3>
-    </div>
-    <ul>
+      </div>
+      <ul>
         <li><a href="/Views/Inicio.html">Inicio</a></li>
         <li><a href="/Views/Servicios.html">Mis Servicios</a></li>
         <li class="submenu">
-                <a href="#" class="submenu-btn">
-                    <div class="submenu-item">
-                    <ion-icon name="home-outline" class="home-icon"></ion-icon>
-                    <p>Admin</p>
-                    <ion-icon name="chevron-down-outline" class="down-icon"></ion-icon>
-                </div>
-                </a>
-            <ul class="submenu-content">
-                <li><a href="/Views/Usuarios.html">Usuarios</a></li>
-                <li><a href="/Views/Manzanas.html">Manzanas</a></li>
-                <li><a href="Crear_servicio.html">Crear Servicio</a></li>
-            </ul>
+          <a href="#" class="submenu-btn">
+            <div class="submenu-item">
+              <ion-icon name="home-outline" class="home-icon"></ion-icon>
+              <p>Admin</p>
+              <ion-icon
+                name="chevron-down-outline"
+                class="down-icon"
+              ></ion-icon>
+            </div>
+          </a>
+          <ul class="submenu-content">
+            <li><a href="/Views/Usuarios.html">Usuarios</a></li>
+            <li><a href="/Views/Manzanas.html">Manzanas</a></li>
+            <li><a href="Crear_servicio.html">Crear Servicio</a></li>
+          </ul>
         </li>
         <li><a href="" onclick="logout()">Cerrar Sesion</a></li>
-    </ul>
-</nav>
-  <h1>Crear Servicio</h1>
-  <div class="formulario">
-    <form id="formularioServicio" onsubmit="crearServicio(event)">
-      <input type="text" placeholder="Nombre del Servicio" name="Ser_Nombre">
-      <input type="text" placeholder="Descripcion" name="Ser_Descripcion">
-      <input type="submit" value="Registrar Servicio">
-    </form>
-  </div>
-</body>
-<script src="../Js/script-2.js"></script>
-<script src="../Js/auth.js"></script>
-<script src="../Js/service.js"></script>
+      </ul>
+    </nav>
+    <h1>Crear Servicio</h1>
+    <div class="formulario">
+      <form id="formularioServicio" onsubmit="crearServicio(event)">
+        <input
+          type="text"
+          placeholder="Nombre del Servicio"
+          name="Ser_Nombre"
+        />
+        <input type="text" placeholder="Descripcion" name="Ser_Descripcion" />
+        <input type="submit" value="Registrar Servicio" />
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>ID Servicio</th>
+            <th>Nombre servicio</th>
+            <th>Descripción</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaservicio"></tbody>
+      </table>
+    </div>
+  </body>
+  <script src="../Js/script-2.js"></script>
+  <script src="../Js/auth.js"></script>
+  <script src="../Js/service.js"></script>
+  <script>
+    loadServices();
+  </script>
 </html>

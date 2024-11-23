@@ -28,7 +28,7 @@ router.get('/listarServiciosManzana', async (req, res) => {
 router.get('/listarServicios', async (req, res) => {
     try {
         const mySQL = new MySQL()
-        const query = 'SELECT Ser_ID, Ser_Nombre FROM Servicio'
+        const query = 'SELECT * FROM Servicio'
         const servicios = await mySQL.executeQuery(query).finally(() => mySQL.closeConnection())
         res.json(servicios)
     } catch (error) {
@@ -113,6 +113,34 @@ router.post('/crearServicio', async (req, res) =>{
         const query = 'INSERT INTO Servicio (Ser_Nombre, Ser_Descripcion) VALUES (?,?)'
         const { affectedRows } = await mySQL.executeQuery(query, [Ser_Nombre, Ser_Descripcion]).finally(() => mySQL.closeConnection())
         affectedRows > 0 ? res.status(200).json({ message: 'Servicio creado exitosamente' }) : res.status(404).json({ message: 'No se pudo crear el servicio' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({message: 'Error interno del servidor'}) 
+    }
+})
+
+// http://localhost:3000/servicio/eliminarServicioAdmin
+// Elimina un servicio en específico
+router.delete('/eliminarServicioAdmin', async (req, res) => {
+    try {
+        const mySQL = new MySQL()
+        const { serviceID } = req.body
+        const queryUsuario = 'DELETE FROM Usuario_Servicio WHERE Ser_ID = ?'
+        const queryManzana = 'DELETE FROM Manzana_Servicio WHERE Ser_ID = ?'
+        const queryServicio = 'DELETE FROM Servicio WHERE Ser_ID = ?'
+        const queries = [
+            mySQL.executeQuery(queryUsuario, [serviceID]),
+            mySQL.executeQuery(queryManzana, [serviceID]),
+            mySQL.executeQuery(queryServicio, [serviceID])
+        ]
+        const results = await Promise.all(queries)
+        const totalAffectedRows = results.reduce((sum, result) => sum + result.affectedRows, 0);
+
+        if (totalAffectedRows > 0) {
+            res.status(200).json({ message: 'Servicio eliminado con éxito' });
+        } else {
+            res.status(404).json({ message: 'Servicio no encontrado' });
+        } 
     } catch (error) {
         console.error(error)
         res.status(500).json({message: 'Error interno del servidor'}) 

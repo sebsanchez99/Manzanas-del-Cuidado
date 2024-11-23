@@ -135,3 +135,70 @@ function crearServicio(event) {
         }
     }) 
 }
+
+function loadServices() {
+    fetch('http://localhost:3000/servicio/listarServicios')
+        .then(res => res.json())
+        .then(data => {
+            const serviceTable = document.getElementById('tablaservicio')
+            serviceTable.innerHTML = ''
+            data.forEach(service => {
+                const row = document.createElement('tr')
+
+                // Columna de ID
+                const idCell = document.createElement('td')
+                idCell.textContent = service.Ser_ID
+                row.appendChild(idCell)
+                
+                // Columna de Nombre
+                const nombreCell = document.createElement('td')
+                nombreCell.textContent = service.Ser_Nombre
+                row.appendChild(nombreCell)
+                
+                // Columna de Descripción
+                const descripcionCell = document.createElement('td')
+                descripcionCell.textContent = service.Ser_Descripcion
+                row.appendChild(descripcionCell)
+                
+                // Columna de Acción
+                const actionsCell = document.createElement('td')
+
+                const deleteButton = document.createElement('button')
+                deleteButton.textContent = 'Eliminar'
+                deleteButton.onclick = () => deleteService(service)
+                actionsCell.appendChild(deleteButton)
+
+                row.appendChild(actionsCell)
+
+                serviceTable.appendChild(row)
+            })
+        })
+}
+
+function deleteService(service) {
+    // Confirmación antes de eliminar
+    if (!confirm(`¿Estás seguro que deseas eliminar el servicio ${service.Ser_Nombre}?`)) return;
+
+    fetch('http://localhost:3000/servicio/eliminarServicioAdmin', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ serviceID: service.Ser_ID })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if (data.message === 'Servicio eliminado con éxito') {
+            alert(data.message);
+            loadServices(); // Actualiza la vista de servicios
+        } else {
+            alert('Error al eliminar el servicio');
+        }
+    })
+    .catch(err => {
+        console.error('Error en deleteService:', err);
+        alert(`Error eliminando el servicio: ${err.message}`);
+    });
+}
+
