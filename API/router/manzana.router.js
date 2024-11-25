@@ -20,10 +20,10 @@ router.get('/getManzanasInfo', async (req, res) => {
 // Obtiene la información de una manzana en específico con los servicios que tiene y los que no
 router.get('/getManzanasServices', async (req, res) => {
     try {
-        const { Man_ID } = req.body
+        const { Man_ID } = req.query
         const mySQL = new MySQL()
         const manzanaQuery = 'SELECT * FROM Manzana WHERE Man_ID = ?'
-        const manzana = await mySQL.executeQuery(manzanaQuery, [Man_ID])
+        const [manzana] = await mySQL.executeQuery(manzanaQuery, [Man_ID])
         const serviciosQuery = `
         SELECT 
             s.Ser_ID,
@@ -39,7 +39,7 @@ router.get('/getManzanasServices', async (req, res) => {
             checked: servicio.checked == 1
         }))
         res.status(200).json({
-            manzanaId: manzana.ManID,
+            manzanaId: manzana.Man_ID,
             manzanaNombre: manzana.Man_Nombre,
             servicios
         })

@@ -42,10 +42,7 @@ function listarManzanasAdmin() {
                 const editIcon = document.createElement('ion-icon')
                 editIcon.name = 'create-outline'
                 editButton.textContent = 'Actualizar'
-                editButton.onclick = () => {
-                    // Lógica para actualizar la manzana
-                    console.log('Actualizar', manzana)
-                }
+                editButton.onclick = () => getManzanaInfo(manzana)
                 actionCell.appendChild(editButton)
 
                 // Botón de Eliminar
@@ -147,4 +144,33 @@ function deleteManzana(manzana) {
         }
     })
     .catch((err) => alert('Error al eliminar la manzana', err))
+}
+
+function getManzanaInfo(manzana) {
+    fetch(`http://localhost:3000/manzana/getManzanasServices?Man_ID=${manzana.Man_ID}`,)
+        .then( res => res.json())
+        .then( data => {            
+            document.getElementById('nombre').value = data.manzanaNombre
+
+            const checkboxContainer = document.getElementById('checkboxServicios')
+            checkboxContainer.innerHTML = ''
+
+            data.servicios.forEach(servicio => {
+                const label = document.createElement('label')
+                label.textContent = servicio.Ser_Nombre
+
+                const checkbox = document.createElement('input')
+                checkbox.type = 'checkbox'
+                checkbox.name = 'servicios'
+                checkbox.value = servicio.Ser_ID
+                checkbox.checked = servicio.checked
+
+                const div = document.createElement('div')
+                div.appendChild(checkbox)
+                div.appendChild(label)
+
+                checkboxContainer.appendChild(div)
+            })
+        })
+        .catch(err => console.error('Error obteniendo la información de la manzana', err))
 }
