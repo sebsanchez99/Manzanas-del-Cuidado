@@ -68,7 +68,8 @@
     <h1>Actualizar Manzana</h1>
     <div class="formulario" id="a_manzana">
       
-      <form id="formManzanaActualizar">
+      <form id="formManzanaActualizar" onsubmit="updateManzana(event)">
+        <input type="hidden" name="idManzana" id="idManzana">
         <label for="">Nombre de la Manzana</label><br>
         <input type="text" name="nombre_manzana" id="nombre" required><br>
         <div id="serviciosContainer">

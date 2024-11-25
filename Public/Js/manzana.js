@@ -151,7 +151,7 @@ function getManzanaInfo(manzana) {
         .then( res => res.json())
         .then( data => {            
             document.getElementById('nombre').value = data.manzanaNombre
-
+            document.getElementById('idManzana').value = data.manzanaId
             const checkboxContainer = document.getElementById('checkboxServicios')
             checkboxContainer.innerHTML = ''
 
@@ -173,4 +173,35 @@ function getManzanaInfo(manzana) {
             })
         })
         .catch(err => console.error('Error obteniendo la información de la manzana', err))
+}
+
+function updateManzana(event) {
+    event.preventDefault()
+    const form = document.getElementById('formManzanaActualizar')
+    const formData = new FormData(form)
+    const manzanaID = formData.get('idManzana')
+    const nombre = formData.get('nombre_manzana')
+    const checkboxes = form.querySelectorAll('input[type="checkbox"][name="servicios"]');    
+    const servicios = Array.from(checkboxes).map(checkbox => ({
+        id: checkbox.value,   
+        checked: checkbox.checked 
+    }));
+    console.log(servicios)
+    fetch('http://localhost:3000/manzana/updateManzana',{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ manzanaID: manzanaID, manzanaName: nombre, servicios: servicios})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.message === 'Manzana actualizada con éxito') {
+            alert(data.message)
+            getManzanaInfo(manzanaID)
+        } else{
+            alert('Error al actualizar los registros de la manzana')
+        }
+    })
+    .catch(() => alert('Error al actualizar los registros de la manzana'))
 }

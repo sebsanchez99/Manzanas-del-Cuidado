@@ -54,12 +54,13 @@ router.get('/getManzanasServices', async (req, res) => {
 router.put('/updateManzana', async (req, res) =>{
     try {
         const { manzanaID, manzanaName, servicios} = req.body
+        console.log(servicios, manzanaID, manzanaName)
         const mySQL = new MySQL()
         const updateQuery = 'UPDATE Manzana SET Man_Nombre=? WHERE Man_ID=?'
         await mySQL.executeQuery(updateQuery, [manzanaName, manzanaID])
         const deleteQuery = 'DELETE FROM Manzana_Servicio WHERE Man_ID = ?'
         await mySQL.executeQuery(deleteQuery, [manzanaID])
-        const insertQuery = 'INSERT INTO ManzanaServicio(Man_ID, Ser_ID) VALUES(?, ?)'
+        const insertQuery = 'INSERT INTO Manzana_Servicio(Man_ID, Ser_ID) VALUES(?, ?)'
         const insertPromises = servicios
             .filter(servicio => servicio.checked)
             .map(servicio => mySQL.executeQuery(insertQuery, [manzanaID, servicio.id]))
