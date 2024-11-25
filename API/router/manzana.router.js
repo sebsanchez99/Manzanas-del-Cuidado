@@ -16,4 +16,19 @@ router.get('/getManzanasInfo', async (req, res) => {
     }
 })
 
+// http://localhost:3000/manzana/updateManzana
+router.put('/updateManzana', async (req, res) =>{
+    try {
+        const { Man_Nombre, ManID} = req.body
+        const mySQL = new MySQL()
+        const query = 'UPDATE Manzana SET Man_Nombre=? WHERE Man_ID=?'
+        const result = await mySQL.executeQuery(query, [Man_Nombre, ManID]).finally(() => mySQL.closeConnection)
+        if (result.affectedRows == 0) req.status(500)
+            res.status(200).json({ message: 'Manzana actualizada correctamente' }) 
+    } catch (error) {
+        console.error(error)
+        res.status(500)   
+    } 
+})
+
 module.exports = router
