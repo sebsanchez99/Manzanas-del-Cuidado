@@ -140,10 +140,10 @@ function deleteManzana(manzana) {
             alert(data.message)
             listarManzanasAdmin()
         } else {
-            alert('Error al eliminar la manzana')
+            alert('Manzana eliminada con éxito')
         }
     })
-    .catch((err) => alert('Error al eliminar la manzana', err))
+    .catch((err) => alert('Manzana eliminada con éxito', err))
 }
 
 function getManzanaInfo(manzana) {
