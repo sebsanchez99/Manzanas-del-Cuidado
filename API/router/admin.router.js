@@ -81,13 +81,15 @@ router.delete('/deleteManzana', async (req, res) => {
         const { Man_ID} = req.body
         const mySQL = new MySQL()
         const queryServicio = 'DELETE FROM Manzana_Servicio WHERE Man_ID = ?'
+        const queryUsuario = 'DELETE FROM Usuario WHERE Man_ID = ?'
         const queryManzana = 'DELETE FROM Manzana WHERE Man_ID = ?'
         await mySQL.executeQuery(queryServicio, [Man_ID])
+        await mySQL.executeQuery(queryUsuario, [Man_ID])
         await mySQL.executeQuery(queryManzana, [Man_ID]).finally(() => mySQL.closeConnection())
         res.status(200).json({ message: 'Manzana eliminada con éxito' })
     } catch (error) {
         console.error(error)
-        res.status(500).json({ message: 'Error al crear manzana' })          
+        res.status(500).json({ message: 'Error al eliminar manzana' })          
     }
 })
 
